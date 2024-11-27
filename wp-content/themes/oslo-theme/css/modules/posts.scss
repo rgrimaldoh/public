@@ -1,0 +1,29 @@
+.galeria-ciudades .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.galeria-ciudades .col-4 {
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+.galeria-ciudades img {
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.galeria-ciudades img:hover {
+  transform: scale(1.05);
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+
+}

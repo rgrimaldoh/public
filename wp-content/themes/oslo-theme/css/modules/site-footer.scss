@@ -1,0 +1,246 @@
+.site-footer {
+  padding: 2rem 0 0rem 0;
+  //background-image: linear-gradient(#fff, #ececec);
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .headline {
+    color: #000;
+    margin-bottom: 0.33rem;
+  }
+
+  &__link {
+    color: #999;
+    text-decoration: none;
+  }
+
+  &__link:hover {
+    color: $mainBlue;
+    text-decoration: underline;
+  }
+
+  &__inner {
+    border-top: 2px solid #000;
+    padding-top: 3.5rem;
+  }
+
+  &__col-one {
+    text-align: left;
+    @include atMedium {
+      margin-top: 0px;
+      width: 45%;
+      float: left;
+    }
+  }
+
+  &__col-two {
+    margin-top: 20px;
+    text-align: left;
+    @include atMedium {
+      margin-top: 0px;
+      width: 18%;
+      float: left;
+    }
+  }
+
+  &__col-three {
+    margin-top: 20px;
+    text-align: left;
+    @include atMedium {
+      margin-top: 0px;
+      width: 22%;
+      float: left;
+    }
+  }
+
+  &__col-four {
+    text-align: left;
+    margin-top: 20px;
+    @include atMedium {
+      margin-top: 0px;
+      width: 15%;
+      float: left;
+    }
+  }
+
+}
+
+.div-newsletter {
+  background-color: #AF8F5B;
+}
+
+.text-newsletter {
+  width: 100%;
+  min-width: 450px;
+  padding: 15px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  height: 50px;
+}
+/*# sourceMappingURL=style-index.css.map*/
+
+.texto-newsletter {
+  margin-bottom: 20px;
+}
+
+.container-newsletter{
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.boton-newsletter {
+  background-color: #AF8F5B;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 350;
+  width: auto;
+  border: 1px solid #fff;
+  width: 160px;
+  padding: 15px 30px;
+}
+
+// .texto-blanco{
+//   color: #fff;
+//   width: 300px;
+// }
+
+// .texto-negro{
+//   width: 300px;
+//   font-family: "Roboto", sans-serif;
+//   font-size: 14px!important;
+// }
+
+.box-texto-newsletter {
+  margin: 90px 0px;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.box-email{
+  margin: 100px 20px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.image-container img {
+  max-width: 70%; /* Para asegurar que las imágenes sean responsive */
+  height: 70%;
+  margin: auto 14px; /* Espacio entre las imágenes */
+}
+
+.box-negro{
+  background-color: #000;
+}
+
+.container-box-negro {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.container-box-negro img {
+    max-width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+}
+
+.align-izquierda{
+  p{
+    margin-left: -500px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.align-derecha{
+  margin-right: -500px;
+}
+
+@media (max-width: 960px) {
+  .site-footer {
+    &__inner {
+      border-top: 1px solid #000!important;
+    }
+  }
+  .text-newsletter {
+    max-width: 330px;
+    min-width: 300px;
+    margin: 0px auto;
+    font-size: 14px!important;
+    /* padding: 20px; */
+  }
+  .box-texto-newsletter{
+    margin: 60px 10px!important;
+  }
+  .inline {
+    display: block;
+    padding-left: 0px;
+    width: 100%;
+  }
+  .box-email{
+    margin: 30px 0px;
+  }
+
+  .image-container{
+    padding: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: space-between; /* Espaciado horizontal */
+    margin: 0px; /* Compensa el padding de los hijos */
+  }
+
+  .image-container img {
+    // margin: auto 15px; /* Espacio entre las imágenes */
+    // min-height: 80px!important;
+    // max-width: 24%; /* Para asegurar que las imágenes sean responsive */
+    // width: auto!important;
+    width: calc(24% - 10px); /* 33.33% del ancho menos el espaciado horizontal */
+    margin: 10px; /* Espaciado vertical y horizontal */
+    box-sizing: border-box; /* Asegura que el padding y el margin no afecten el tamaño */
+
+  }
+
+  .container-box-negro {
+      text-align: left;
+      align-items: left;
+      display: block;
+  }
+
+  .container-box-negro img {
+      margin-top: 0px;
+  }
+
+  .align-izquierda{
+    p{
+      text-align: left!important;
+      margin-left: 0px;
+      position: static!important;
+      top: 0px;
+      transform: translateY(0%);
+    }
+  }
+
+  .align-derecha{
+    margin-right: 0px;
+  }
+
+  .boton-newsletter {
+    margin-top: 10px;
+  }
+
+}
+

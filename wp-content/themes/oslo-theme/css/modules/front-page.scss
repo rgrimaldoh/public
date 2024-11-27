@@ -1,0 +1,351 @@
+.espacio-entre-blocos{
+    height: 32px;
+    @include atSmall {
+        height: 120px;
+    }
+}
+
+.titulos-geral{
+    font-size: 32!important;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0px;   
+    font-family: "Carla", sans-serif!important;
+}
+
+.parrafos-geral{
+    font-family: "Roboto", sans-serif;
+    font-size: 17!important;
+    margin: 0px;   
+    @include atSmall {
+      width: 100%;
+  }
+}
+
+.parrafos-front-page{
+  margin: 0px 26px;   
+  @include atSmall {
+    margin: 0px;   
+}
+}
+
+.parrafo-explore-lencoes{
+    width: 100%;
+    @include atSmall {
+      width: 70%;
+  }
+}
+
+.centar-texto{
+    text-align: center;
+}
+
+.texto-izquierda{
+  text-align: left;
+}
+
+.contenedor {
+    max-width: 1224px;
+    position: relative;
+}
+
+.espacio-entre-texto-contenido{
+    height: 10px;
+    @include atSmall {
+        height: 46px;
+    }
+}
+
+/* Inicio CSS Bloque Inspirações */
+.bloque-hospedagem {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 0px 0px; /* Para compensar los paddings de las columnas */
+    //padding-left: 10px;
+}
+
+.item-hospedagem {
+    flex: 0 0 calc(33.33% - 17px); /* El 33.33% asegura 3 columnas, y restamos 20px para los paddings. */
+    margin: 30px 0px; /* Espacio entre las columnas */
+    padding: 10px 12px;
+    box-sizing: border-box;
+    p {
+      color: #397363;
+      margin: 1em 0 .35em 0;
+      font-size: 22px;
+      .categoria{
+        margin: 0!important;
+      }
+    }
+    a, a:hover, a:active, a:visited {
+      color: #D68057;
+      text-decoration: none;
+      font-size: 16px;
+    }
+}
+
+.item-hospedagem-orillas{
+  flex: 0 0 calc(33.33% - 15px); /* El 33.33% asegura 3 columnas, y restamos 20px para los paddings. */
+  margin: 30px 11.5px; /* Espacio entre las columnas */
+  padding: 10px 12px;
+  box-sizing: border-box;
+  p {
+    color: #397363;
+    margin: 1em 0 .35em 0;
+    font-size: 22px;
+    .categoria{
+      margin: 0!important;
+    }
+  }
+  a, a:hover, a:active, a:visited {
+    color: #D68057;
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
+
+.item-charme {
+  flex: 0 0 calc(24% - 10px); /* El 33.33% asegura 3 columnas, y restamos 20px para los paddings. */
+  margin: 30px 0px; /* Espacio entre las columnas */
+  padding: 10px;
+  box-sizing: border-box;
+  p {
+    color: #397363;
+    margin: 1em 0 .35em 0;
+    font-size: 22px;
+    .categoria{
+      margin: 0!important;
+    }
+  }
+  a, a:hover, a:active, a:visited {
+    color: #D68057;
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
+
+.categoria {
+  a {
+    color: var(--Julia-Verde-Texto, #163C32)!important;
+    font-size: 16px!important;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25.6px; /* 160% */
+  }
+  margin: 0px auto 0px 0px!important;
+}
+
+.container-hospedagem {
+    position: relative;
+    text-align: center;
+    color: white;
+    img{
+      width: 100%;
+      height: auto;
+    }
+    .img-arroba{
+      align-items: left;
+      text-align: left;
+      height: 23px!important;
+      width: auto!important;
+      img{
+        align-items: left;
+        text-align: left;
+        margin-left: 0px;
+        height: 23px!important;
+        width: auto!important;
+      }
+    }
+  }
+
+.titulo-empresas{
+    position: absolute;
+    top: 15%;
+    right: -30%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    color: #fff;
+    font-size: 32px;
+    font-family: "Carla", sans-serif;
+    font-weight: 300;
+    filter: brightness(100%)!important;
+    //line-height: 100%;
+    line-height: 37px;
+}
+
+.saiba-mais-bloque{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    filter: brightness(100%)!important;
+    line-height: 177%;
+    // text-decoration: underline;
+    border: #FFF 1px solid;
+    padding: 10px 20px;
+}
+
+.btn-hospedagem {
+    border: 1px solid;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: $beige;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.front-saiba-small{
+  font-size: 15px!important;
+  color: #7E5E17;
+  text-decoration: underline;
+}
+
+.box-experience{
+  margin: 140px 80px 140px 80px;
+  width: 458px;
+  height: 370px;
+  background-color: #fff;
+}
+
+.margen-box-experiencias{
+  margin: 0px;
+}
+
+.fondo-blanco{
+  background-color: #fff;
+}
+
+/* Inicio CSS Bloque Inspirações */
+.bloque-blog {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto; /* Para compensar los paddings de las columnas */
+  max-width: 1224px;
+  text-align: center;
+}
+
+
+/* Blog */
+.container-blog {
+  p{
+    max-width: 1024px!important;
+  }  
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 17px;
+  max-width: 1024px!important;
+}
+
+.item-blog {
+  //flex: 0 0 calc(47% - 20px); /* El 33.33% asegura 3 columnas, y restamos 20px para los paddings. */
+  flex: 0 0 calc(50% - 20px);
+  margin: 10px; /* Espacio entre las columnas */
+  padding: 10px;
+  box-sizing: border-box;
+  p {
+    color: #182F43;
+    margin: 0;
+    font-size: 22px;
+    .categoria{
+      margin: 0!important;
+    }
+  }
+  a, a:hover, a:active, a:visited {
+    color: #D68057;
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
+
+.container-blog-text {
+  position: relative;
+  text-align: center;
+  margin: 0px auto;
+  padding: 30px;
+  //background-color: #fff;
+  max-width: 532px;
+  .title-blog {
+    font-family: "Carla", sans-serif;
+    color: #182F43;
+    font-size: 24px;
+    margin: 0px;
+  }
+  
+  .excerpt-blog {
+    font-size: 17px!important;
+    margin-top: 10px!important;
+  }
+}
+
+
+@media screen and (max-width: 850px) {
+  .bloque-hospedagem {
+      width: 100%;
+      margin: 0px auto;
+    }
+    .item-hospedagem {
+      flex: 100%;
+      width: 100%;
+    }
+    .item-hospedagem-orillas {
+      flex: 100%;
+      width: 100%;
+      margin: 0%;
+    }
+
+    .container-hospedagem {
+      flex: 100%;
+      width: 100%;
+      height: auto!important;
+      margin: 0px auto;
+      img{
+        width: 100%!important;
+        height: auto!important;
+      }
+    }
+    .box-experience{
+      margin: 10px!important;
+      width: 330px!important;
+      height: auto;
+      opacity: .8;
+    }
+    .bloque-blog {
+      width: 100%;
+      margin: 0px auto;
+    }
+    .item-blog {
+      flex: 100%;
+      width: 100%;
+    }
+    .container-blog {
+      width: 100%!important;
+      margin: 0px!important;
+    }
+    .titulo-empresas{
+      top: 20%;
+      font-size: 28px;
+    }
+    // .margen-box-experiencias{
+    //   margin: 0px 0px;
+    // }
+    .img-home-exp{
+      min-height: 400px!important;
+      //height: 100%!important;
+      width: auto!important;
+    }
+}
+
+.texto-geral{
+  color: var(--escuro, #242021);
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px; /* 158.824% */
+}

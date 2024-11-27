@@ -1,5 +1,5 @@
 {
-  "name": "fictional-university-theme",
+  "name": "oslo-theme",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "@wordpress/scripts": "*",
-    "axios": "^1.7.7",
+    "axios": "^0.21.1",
     "normalize.css": "^8.0.1"
   }
 }
