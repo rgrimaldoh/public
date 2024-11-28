@@ -412,3 +412,9 @@ Stack trace:
 [27-Nov-2024 12:18:34 UTC] Automatic updates starting...
 [27-Nov-2024 12:18:35 UTC] Automatic updates complete.
 [27-Nov-2024 12:48:51 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\class-wpdb.php on line 1982
+[28-Nov-2024 12:58:38 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\class-wpdb.php on line 1982
+[28-Nov-2024 12:59:00 UTC] Procesando inicio de sesión de empresa
+[28-Nov-2024 13:07:06 UTC] Automatic updates starting...
+[28-Nov-2024 13:07:08 UTC] Automatic updates complete.
+[28-Nov-2024 18:01:31 UTC] Automatic updates starting...
+[28-Nov-2024 18:01:32 UTC] Automatic updates complete.

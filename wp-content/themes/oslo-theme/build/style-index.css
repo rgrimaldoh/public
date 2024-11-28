@@ -2386,4 +2386,62 @@ button.prev-charme:hover, button.next-charme:hover {
   transform: scale(1.05);
 }
 
+/* Contenedor general */
+.galeria-ciudades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; /* Ajusta automáticamente según el espacio */
+  gap: 20px; /* Espacio entre las tarjetas */
+  margin: 20px 0;
+  padding: 10px; /* Espaciado interno */
+  max-width: 100%; /* Limita el ancho máximo */
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  box-sizing: border-box; /* Considera el padding dentro del tamaño total */
+}
+
+.galeria-ciudades .tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background: #f8f8f8; /* Fondo opcional */
+  border: 1px solid #ddd; /* Borde opcional */
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+.galeria-ciudades .tarjeta img {
+  width: 100%; /* Imagen toma todo el ancho */
+  height: 150px; /* Altura fija para las imágenes */
+  -o-object-fit: cover;
+     object-fit: cover; /* Asegura que las imágenes se recorten sin deformarse */
+  border-radius: 8px; /* Opcional, para esquinas redondeadas */
+}
+
+.galeria-ciudades .tarjeta p {
+  margin: 5px 0;
+  font-size: 14px;
+  word-wrap: break-word; /* Permite que el texto largo se ajuste en varias líneas */
+}
+
+/* Contenedor de texto */
+.ciudad-info {
+  margin-top: 10px;
+}
+
+/* Nombre de la ciudad */
+.ciudad-nombre {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Nombre del archivo */
+.ciudad-archivo {
+  font-size: 12px;
+  color: #666;
+  margin: 5px 0 0;
+}
+
 /*# sourceMappingURL=style-index.css.map*/

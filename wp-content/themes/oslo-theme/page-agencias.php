@@ -13,7 +13,7 @@ get_header();
     <p>Aquí podrás gestionar tus agencias.</p>
 </div>
 
-</div class="container contenedor-registro">
+<div class="container contenedor-registro">
   <br><br><br>
 
   <div id="filtros">

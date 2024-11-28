@@ -308,12 +308,14 @@ function obtener_ciudades($data) {
 
     $result = [];
     foreach ($ciudades as $ciudad) {
-        $archivo = get_post_meta($ciudad->ID, 'arquivo_pronta_referencia', true);
+        $archivo_meta = get_post_meta($ciudad->ID, 'arquivo_pronta_referencia', true);
+        $archivo_url = is_array($archivo_meta) ? $archivo_meta['url'] : wp_get_attachment_url($archivo_meta);
+
         $result[] = [
-            'id'      => $ciudad->ID,
-            'nombre'  => $ciudad->post_title,
-            'imagen'  => get_the_post_thumbnail_url($ciudad->ID, 'thumbnail'),
-            'archivo' => $archivo,
+            'id' => $ciudad->ID,
+            'nombre' => $ciudad->post_title,
+            'imagen' => get_the_post_thumbnail_url($ciudad->ID, 'thumbnail'),
+            'archivo' => $archivo_url,
         ];
     }
 

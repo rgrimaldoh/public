@@ -103,28 +103,44 @@ document.addEventListener('DOMContentLoaded', function () {
           galeria.innerHTML = '<p>No hay ciudades disponibles.</p>';
           return;
         }
-
-        // Crear fila para las ciudades
-        const fila = document.createElement('div');
-        fila.className = 'row';
+        // Crear contenedor para las ciudades con CSS Grid
+        //galeria.style.display = 'grid';
+        //galeria.style.gridTemplateColumns = 'repeat(6, 1fr)'; // 6 columnas iguales
+        //galeria.style.gap = '20px'; // Espaciado entre las tarjetas
 
         // Iterar sobre las ciudades y agregar al contenedor
         data.forEach(ciudad => {
-          if (!galeria.querySelector(`img[src="${ciudad.imagen}"]`)) {
-            const columna = document.createElement('div');
-            columna.className = 'col-4';
+          // Crear fila solo si no existe
+          if (!galeria.querySelector(`.row`)) {
+            const fila = document.createElement('div');
+            fila.className = 'row'; // Clase para la fila
+            galeria.appendChild(fila); // Agregar la fila al contenedor
+          }
+          if (!galeria.querySelector(`[data-id="${ciudad.id}"]`)) {
+            // Evitar duplicados
+            const tarjeta = document.createElement('div');
+            tarjeta.className = 'tarjeta'; // Clase para aplicar los estilos
+            tarjeta.dataset.id = ciudad.id; // Asigna el ID de la ciudad
+
             const enlace = document.createElement('a');
-            enlace.href = ciudad.archivo;
-            enlace.download = ciudad.nombre;
+            enlace.href = ciudad.archivo || '#'; // Usa el campo archivo o un fallback
+            enlace.download = ciudad.nombre || 'archivo';
+            enlace.target = '_blank'; // Abrir en nueva pestaña si no descarga automáticamente
+
             const img = document.createElement('img');
-            img.src = ciudad.imagen || '/path/to/default-image.jpg'; // Imagen por defecto si falta
+            img.src = ciudad.imagen || '/wp-content/uploads/2024/11/pdf-file.png'; // Imagen genérica
             img.alt = ciudad.nombre;
+            const nombreCiudad = document.createElement('p');
+            nombreCiudad.textContent = ciudad.nombre || 'Sin nombre';
+            const nombreArchivo = document.createElement('p');
+            nombreArchivo.textContent = ciudad.archivo ? ciudad.archivo.split('/').pop() : 'Archivo no disponible';
             enlace.appendChild(img);
-            columna.appendChild(enlace);
-            fila.appendChild(columna);
+            tarjeta.appendChild(enlace);
+            tarjeta.appendChild(nombreCiudad);
+            tarjeta.appendChild(nombreArchivo);
+            galeria.appendChild(tarjeta); // Agregar directamente al grid
           }
         });
-        galeria.appendChild(fila);
       }).catch(err => {
         console.error('Error al cargar ciudades:', err);
         galeria.innerHTML = '<p>Error al cargar las ciudades. Intente nuevamente.</p>';
