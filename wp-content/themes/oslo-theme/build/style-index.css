@@ -2387,42 +2387,43 @@ button.prev-charme:hover, button.next-charme:hover {
 }
 
 /* Contenedor general */
+/* Ajustes de la galería */
 .galeria-ciudades {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; /* Ajusta automáticamente según el espacio */
-  gap: 20px; /* Espacio entre las tarjetas */
+  grid-template-columns: repeat(6, minmax(170px, 1fr)); /* Mínimo 150px por tarjeta */
+  gap: 20px; /* Espaciado entre elementos */
   margin: 20px 0;
-  padding: 10px; /* Espaciado interno */
-  max-width: 100%; /* Limita el ancho máximo */
-  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  padding: 10px;
+  max-width: 100%; /* Adapta el ancho al contenedor */
   box-sizing: border-box; /* Considera el padding dentro del tamaño total */
 }
 
+/* Tarjetas con distribución adecuada */
 .galeria-ciudades .tarjeta {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  background: #f8f8f8; /* Fondo opcional */
-  border: 1px solid #ddd; /* Borde opcional */
+  background: #f8f8f8;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .galeria-ciudades .tarjeta img {
   width: 100%; /* Imagen toma todo el ancho */
-  height: 150px; /* Altura fija para las imágenes */
+  height: 120px; /* Reduce un poco la altura para adaptarse */
   -o-object-fit: cover;
-     object-fit: cover; /* Asegura que las imágenes se recorten sin deformarse */
+     object-fit: cover; /* Recorta sin deformar */
   border-radius: 8px; /* Opcional, para esquinas redondeadas */
 }
 
 .galeria-ciudades .tarjeta p {
   margin: 5px 0;
   font-size: 14px;
-  word-wrap: break-word; /* Permite que el texto largo se ajuste en varias líneas */
+  word-wrap: break-word;
 }
 
 /* Contenedor de texto */
@@ -2442,6 +2443,45 @@ button.prev-charme:hover, button.next-charme:hover {
   font-size: 12px;
   color: #666;
   margin: 5px 0 0;
+}
+
+select {
+  /* styling */
+  background-color: white;
+  border: thin solid rgb(117, 117, 121);
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 2.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  /* reset */
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* arrows */
+select.classic {
+  background-image: linear-gradient(45deg, transparent 50%, blue 50%), linear-gradient(135deg, blue 50%, transparent 50%), linear-gradient(to right, skyblue, skyblue);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.classic:focus {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%), linear-gradient(135deg, transparent 50%, white 50%), linear-gradient(to right, gray, gray);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .galeria-ciudades {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Mínimo 150px por tarjeta */
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/
