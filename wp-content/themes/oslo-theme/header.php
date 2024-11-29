@@ -8,6 +8,30 @@
   <body <?php body_class(); ?>>
   <header class="site-header">
 
+      <div class="user-greeting">
+        <div class="site-header__util">
+          <?php  
+            if (is_user_logged_in()) {
+              // echo '<a href="' . site_url('/agencias') . '" class="btn btn--small btn--orange float-left push-right btn-agencias">Ir a Agencias</a>';
+              echo '<a href="' . wp_logout_url(home_url()) . '" class="btn-logout btn btn--small btn--orange float-left push-right btn--with-photo">Cerrar sesión</a>';
+            } 
+            // else {
+            //     echo '<a href="' . site_url('/registro-empresa') . '" class="btn btn--small btn--dark-orange float-left btn-login">Login / Registro</a>';
+            // }
+          ?>
+        </div>
+      </div>
+      <div class="site-header__util user-greeting">
+        <?php $current_user = wp_get_current_user(); // Obtiene el usuario actual
+          if (is_user_logged_in()) {
+              echo 'Hola, ' . ucwords(esc_html($current_user->display_name)) . '!'; // Muestra el nombre del usuario
+          } else {
+              echo '¡Bienvenido visitante!';
+          } 
+        ?>
+      </div>
+
+
       <a href="<?php echo esc_url(site_url('/')); ?>" class="plantel-logo">
         <img src="<?php 
           if(is_front_page()) {
@@ -33,17 +57,9 @@
               ?> 
             </nav> 
 
-          <div class="site-header__util">
-            <?php  
-              if (is_user_logged_in()) {
-                // echo '<a href="' . site_url('/agencias') . '" class="btn btn--small btn--orange float-left push-right btn-agencias">Ir a Agencias</a>';
-                echo '<a href="' . wp_logout_url(home_url()) . '" class="btn-logout btn btn--small btn--orange float-left push-right btn--with-photo">Cerrar sesión</a>';
-              } 
-              // else {
-              //     echo '<a href="' . site_url('/registro-empresa') . '" class="btn btn--small btn--dark-orange float-left btn-login">Login / Registro</a>';
-              // }
-            ?>
-          </div>
+
+
+
 
         </div>
       </div>

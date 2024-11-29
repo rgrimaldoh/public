@@ -128,12 +128,26 @@ function mostrar_usuarios_registrados() {
     $users = get_users(['meta_key' => 'cnpj']);
     echo '<h2>Usuarios Registrados</h2>';
     echo '<table class="wp-list-table widefat fixed striped">';
-    echo '<thead><tr><th>Empresa</th><th>CNPJ</th><th>Email</th><th>Nome</th><th>Sobrenome</th><th>Acciones</th></tr></thead><tbody>';
+    echo '<thead>
+            <tr>
+                <th>Empresa</th>
+                <th>CNPJ</th>
+                <th>Email</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Acceso Agencias</th>
+                <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>';
+
     foreach ($users as $user) {
         $empresa = get_user_meta($user->ID, 'empresa', true);
         $cnpj = get_user_meta($user->ID, 'cnpj', true);
         $nombre = get_user_meta($user->ID, 'nombre', true);
         $apellido = get_user_meta($user->ID, 'apellido', true);
+        $acceso_agencias = get_user_meta($user->ID, 'acceso_agencias', true) ? 'Sí' : 'No';
+
         echo "<tr>
                 <td>{$empresa}</td>
                 <td>{$cnpj}</td>
@@ -141,13 +155,37 @@ function mostrar_usuarios_registrados() {
                 <td>{$nombre}</td>
                 <td>{$apellido}</td>
                 <td>
+                    <form method='post' action=''>
+                        <input type='hidden' name='user_id' value='{$user->ID}'>
+                        <input type='checkbox' name='acceso_agencias' value='1' " . checked(1, $acceso_agencias === 'Sí', false) . ">
+                        <input type='submit' class='button' value='Actualizar'>
+                    </form>
+                </td>
+                <td>
                     <a href='" . admin_url('user-edit.php?user_id=' . $user->ID) . "'>Editar</a> |
                     <a href='" . wp_nonce_url(admin_url('users.php?action=delete&user=' . $user->ID), 'delete-user_' . $user->ID) . "'>Eliminar</a>
                 </td>
               </tr>";
     }
+
     echo '</tbody></table>';
 }
+
+
+function actualizar_acceso_agencias() {
+    if (isset($_POST['user_id']) && current_user_can('manage_options')) {
+        $user_id = intval($_POST['user_id']);
+        $acceso = isset($_POST['acceso_agencias']) ? 1 : 0;
+        update_user_meta($user_id, 'acceso_agencias', $acceso);
+
+        // Redirigir para evitar reenvíos de formulario
+        wp_redirect(admin_url('admin.php?page=usuarios'));
+        exit;
+    }
+}
+add_action('admin_init', 'actualizar_acceso_agencias');
+
+
 
 function consultar_cnpj() {
     if (!isset($_GET['cnpj'])) {
@@ -331,6 +369,78 @@ function cargar_scripts_agencias() {
 
 add_action('wp_enqueue_scripts', 'cargar_scripts_agencias');
 
+
+
+//Codigo para aceptación de usuarios Inicio
+
+// Agregar campo personalizado en el perfil del usuario
+function agregar_campo_acceso_usuario($user) {
+    if (!current_user_can('manage_options')) { // Solo administradores pueden editar este campo
+        return;
+    }
+    ?>
+    <h3>Permisos de acceso</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="acceso_agencias">Acceso a la página de agencias</label></th>
+            <td>
+                <input type="checkbox" name="acceso_agencias" id="acceso_agencias" value="1" <?php checked(get_user_meta($user->ID, 'acceso_agencias', true), 1); ?>>
+                <span class="description">Marcar para permitir el acceso a la página de agencias.</span>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'agregar_campo_acceso_usuario');
+add_action('edit_user_profile', 'agregar_campo_acceso_usuario');
+
+// Guardar el campo personalizado
+function guardar_campo_acceso_usuario($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+    update_user_meta($user_id, 'acceso_agencias', isset($_POST['acceso_agencias']) ? 1 : 0);
+}
+add_action('personal_options_update', 'guardar_campo_acceso_usuario');
+add_action('edit_user_profile_update', 'guardar_campo_acceso_usuario');
+
+//Codigo para aceptación de usuarios Inicio
+
+
+// Restringir acceso a la página de agencias
+function restringir_acceso_agencias() {
+    if (is_page('agencias') && !current_user_can('manage_options')) { // Reemplaza 'agencias' con el slug de la página
+        $user_id = get_current_user_id();
+        $acceso_permitido = get_user_meta($user_id, 'acceso_agencias', true);
+
+        if (!$acceso_permitido) {
+            wp_redirect(home_url()); // Redirige al usuario al inicio si no tiene permiso
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'restringir_acceso_agencias');
+
+
+// Validar acceso a la página de agencias
+function restringir_acceso_agencias_con_mensaje() {
+    if (is_page('agencias') && !current_user_can('manage_options')) {
+        $user_id = get_current_user_id();
+        $acceso_permitido = get_user_meta($user_id, 'acceso_agencias', true);
+
+        if (!$acceso_permitido) {
+            wp_die('Tu acceso a esta página está pendiente de aprobación. Contacta con el administrador.');
+        }
+    }
+}
+add_action('template_redirect', 'restringir_acceso_agencias_con_mensaje');
+
+
+
+function establecer_acceso_predeterminado($user_id) {
+    add_user_meta($user_id, 'acceso_agencias', 0); // 0 significa sin acceso
+}
+add_action('user_register', 'establecer_acceso_predeterminado');
 
 
 ?>

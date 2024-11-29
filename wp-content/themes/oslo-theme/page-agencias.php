@@ -7,7 +7,9 @@ if (!is_user_logged_in()) {
 }
 get_header();
 ?>
-<div class="espacio-menu-pagina"></div><div class="espacio-menu-pagina"></div>
+<div class="espacio-menu-pagina"></div>
+<div class="espacio-menu-pagina"></div>
+
 <div class="container contenedor-registro">
     <h2>Bienvenido a Agencias</h2>
     <p>Aquí podrás gestionar tus agencias.</p>

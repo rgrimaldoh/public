@@ -1130,6 +1130,9 @@ body.login {
   }
 }
 
+.texto-blanco {
+  color: #fff;
+}
 .texto-blanco a {
   color: #fff !important;
 }
@@ -1137,6 +1140,9 @@ body.login {
   background-color: #fff !important;
 }
 
+.texto-negro {
+  color: #000;
+}
 .texto-negro a {
   color: #000 !important;
 }
@@ -2476,6 +2482,13 @@ select.classic:focus {
   background-repeat: no-repeat;
   border-color: grey;
   outline: 0;
+}
+
+.user-greeting {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 10px;
+  text-align: right;
 }
 
 @media screen and (max-width: 1400px) {
