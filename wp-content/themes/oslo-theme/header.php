@@ -21,7 +21,7 @@
           ?>
         </div>
       </div>
-      <div class="site-header__util user-greeting">
+      <div class="site-header__util user-greeting <?php if(is_front_page()) { ?>texto-blanco<?php } else { ?>texto-negro<?php } ?>">
         <?php $current_user = wp_get_current_user(); // Obtiene el usuario actual
           if (is_user_logged_in()) {
               echo 'Hola, ' . ucwords(esc_html($current_user->display_name)) . '!'; // Muestra el nombre del usuario

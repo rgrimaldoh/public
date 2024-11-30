@@ -52,22 +52,29 @@ add_action('after_setup_theme', 'oslo_features');
 
 
 function consultar_cnpj() {
+    error_log("Inicio de consultar_cnpj");
     if (!isset($_GET['cnpj'])) {
+        error_log("CNPJ no especificado");
         wp_send_json_error('CNPJ no especificado');
         return;
     }
 
     $cnpj = sanitize_text_field($_GET['cnpj']);
-    $response = wp_remote_get("https://receitaws.com.br/v1/cnpj/{$cnpj}");
+    error_log("CNPJ recibido: $cnpj");
 
+    $response = wp_remote_get("https://receitaws.com.br/v1/cnpj/{$cnpj}");
     if (is_wp_error($response)) {
+        error_log("Error al consultar la API: " . $response->get_error_message());
         wp_send_json_error('Error al consultar la API');
         return;
     }
 
     $data = wp_remote_retrieve_body($response);
+    error_log("Respuesta de la API: $data");
+
     wp_send_json_success(json_decode($data));
 }
+
 add_action('wp_ajax_consultar_cnpj', 'consultar_cnpj');
 add_action('wp_ajax_nopriv_consultar_cnpj', 'consultar_cnpj');
 
@@ -359,19 +366,26 @@ function mostrar_usuarios_registrados() {
 //Usuarios Fin
 
 
-//No se pa que sirve
-function actualizar_acceso_agencias() {
-    if (isset($_POST['user_id']) && current_user_can('manage_options')) {
-        $user_id = intval($_POST['user_id']);
-        $acceso = isset($_POST['acceso_agencias']) ? 1 : 0;
-        update_user_meta($user_id, 'acceso_agencias', $acceso);
-
-        // Redirigir para evitar reenvíos de formulario
-        wp_redirect(admin_url('admin.php?page=usuarios'));
-        exit;
+function actualizar_acceso_agencias($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return;
     }
+
+    error_log("Estado antes: " . get_user_meta($user_id, 'acceso_agencias', true));
+
+    $nuevo_estado = isset($_POST['acceso_agencias']) ? intval($_POST['acceso_agencias']) : 0;
+
+    update_user_meta($user_id, 'acceso_agencias', $nuevo_estado);
+    $user = new WP_User($user_id);
+
+    if ($nuevo_estado) {
+        $user->add_cap('acceso_agencias');
+    } else {
+        $user->remove_cap('acceso_agencias');
+    }
+
+    error_log("Estado después: " . get_user_meta($user_id, 'acceso_agencias', true));
 }
-add_action('admin_init', 'actualizar_acceso_agencias');
 
 
 function cargar_scripts_agencias() {
@@ -447,14 +461,14 @@ function asignar_capacidades_basicas() {
 }
 add_action('init', 'asignar_capacidades_basicas');
 
-function verificar_capacidad_usuario_actual() {
-    if (current_user_can('acceso_agencias')) {
-        echo '<div class="notice notice-success"><p>El usuario tiene permiso para acceder a la página de agencias.</p></div>';
-    } else {
-        echo '<div class="notice notice-error"><p>El usuario NO tiene permiso para acceder a la página de agencias.</p></div>';
-    }
-}
-add_action('admin_notices', 'verificar_capacidad_usuario_actual');
+// function verificar_capacidad_usuario_actual() {
+//     if (current_user_can('acceso_agencias')) {
+//         echo '<div class="notice notice-success"><p>El usuario tiene permiso para acceder a la página de agencias.</p></div>';
+//     } else {
+//         echo '<div class="notice notice-error"><p>El usuario NO tiene permiso para acceder a la página de agencias.</p></div>';
+//     }
+// }
+// add_action('admin_notices', 'verificar_capacidad_usuario_actual');
 
 function autorizar_usuario_para_agencias($user_id) {
     $user = new WP_User($user_id);
@@ -465,7 +479,7 @@ function autorizar_usuario_para_agencias($user_id) {
 
 function verificar_acceso_agencias() {
     if (is_page('agencias') &&  !current_user_can('acceso_agencias')) {
-        wp_die(__('No tienes permiso para acceder a esta página agencias.'));
+        wp_die(__('No tienes permiso para acceder a la página agencias. Solicite acceso al administrador'));
     }
 }
 add_action('template_redirect', 'verificar_acceso_agencias');

@@ -457,3 +457,238 @@ Stack trace:
 [30-Nov-2024 18:16:25 UTC] PHP Warning:  wp_update_plugins(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\functions.php on line 6114
 [30-Nov-2024 18:16:25 UTC] PHP Warning:  wp_update_themes(): An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/forums/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\functions.php on line 6114
 [30-Nov-2024 19:29:56 UTC] Procesando inicio de sesión de empresa
+[30-Nov-2024 20:14:53 UTC] Procesando inicio de sesión de empresa
+[30-Nov-2024 20:15:05 UTC] Procesando inicio de sesión de empresa
+[30-Nov-2024 20:33:16 UTC] Procesando inicio de sesión de empresa
+[30-Nov-2024 20:33:24 UTC] Usuario ya logueado, redirigiendo a /agencias
+[30-Nov-2024 20:52:21 UTC] Procesando inicio de sesión de empresa
+[30-Nov-2024 21:18:03 UTC] Inicio de consultar_cnpj
+[30-Nov-2024 21:18:03 UTC] CNPJ recibido: 38084343000154
+[30-Nov-2024 21:18:04 UTC] Respuesta de la API: {
+  "abertura": "13/08/2020",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "RICARDO GRIMALDO HERNANDEZ 24143302870",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "18.21-1-00",
+      "text": "Serviços de pré-impressão"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "58.19-1-00",
+      "text": "Edição de cadastros, listas e outros produtos gráficos"
+    },
+    {
+      "code": "95.11-8-00",
+      "text": "Reparação e manutenção de computadores e de equipamentos periféricos"
+    },
+    {
+      "code": "18.13-0-01",
+      "text": "Impressão de material para uso publicitário"
+    },
+    {
+      "code": "73.19-0-02",
+      "text": "Promoção de vendas"
+    },
+    {
+      "code": "95.12-6-00",
+      "text": "Reparação e manutenção de equipamentos de comunicação"
+    },
+    {
+      "code": "58.13-1-00",
+      "text": "Edição de revistas"
+    },
+    {
+      "code": "82.19-9-99",
+      "text": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente"
+    },
+    {
+      "code": "18.13-0-99",
+      "text": "Impressão de material para outros usos"
+    },
+    {
+      "code": "79.90-2-00",
+      "text": "Serviços de reservas e outros serviços de turismo não especificados anteriormente"
+    },
+    {
+      "code": "82.30-0-01",
+      "text": "Serviços de organização de feiras, congressos, exposições e festas"
+    },
+    {
+      "code": "58.11-5-00",
+      "text": "Edição de livros"
+    },
+    {
+      "code": "85.99-6-99",
+      "text": "Outras atividades de ensino não especificadas anteriormente"
+    },
+    {
+      "code": "59.12-0-99",
+      "text": "Atividades de pós-produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente"
+    },
+    {
+      "code": "79.11-2-00",
+      "text": "Agências de viagens"
+    },
+    {
+      "code": "47.63-6-02",
+      "text": "Comércio varejista de artigos esportivos"
+    }
+  ],
+  "logradouro": "RUA VERGUEIRO",
+  "numero": "6583",
+  "complemento": "APT 31",
+  "municipio": "SAO PAULO",
+  "bairro": "VILA FIRMIANO PINTO",
+  "uf": "SP",
+  "cep": "04.273-100",
+  "email": "rgrimaldoh@gmail.com",
+  "telefone": "(11) 9534-2993",
+  "data_situacao": "13/08/2020",
+  "cnpj": "38.084.343/0001-54",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "1000.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[30-Nov-2024 21:18:14 UTC] Inicio de consultar_cnpj
+[30-Nov-2024 21:18:14 UTC] CNPJ recibido: 38084343000154
+[30-Nov-2024 21:18:14 UTC] Respuesta de la API: {
+  "abertura": "13/08/2020",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "RICARDO GRIMALDO HERNANDEZ 24143302870",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "18.21-1-00",
+      "text": "Serviços de pré-impressão"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "58.19-1-00",
+      "text": "Edição de cadastros, listas e outros produtos gráficos"
+    },
+    {
+      "code": "95.11-8-00",
+      "text": "Reparação e manutenção de computadores e de equipamentos periféricos"
+    },
+    {
+      "code": "18.13-0-01",
+      "text": "Impressão de material para uso publicitário"
+    },
+    {
+      "code": "73.19-0-02",
+      "text": "Promoção de vendas"
+    },
+    {
+      "code": "95.12-6-00",
+      "text": "Reparação e manutenção de equipamentos de comunicação"
+    },
+    {
+      "code": "58.13-1-00",
+      "text": "Edição de revistas"
+    },
+    {
+      "code": "82.19-9-99",
+      "text": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente"
+    },
+    {
+      "code": "18.13-0-99",
+      "text": "Impressão de material para outros usos"
+    },
+    {
+      "code": "79.90-2-00",
+      "text": "Serviços de reservas e outros serviços de turismo não especificados anteriormente"
+    },
+    {
+      "code": "82.30-0-01",
+      "text": "Serviços de organização de feiras, congressos, exposições e festas"
+    },
+    {
+      "code": "58.11-5-00",
+      "text": "Edição de livros"
+    },
+    {
+      "code": "85.99-6-99",
+      "text": "Outras atividades de ensino não especificadas anteriormente"
+    },
+    {
+      "code": "59.12-0-99",
+      "text": "Atividades de pós-produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente"
+    },
+    {
+      "code": "79.11-2-00",
+      "text": "Agências de viagens"
+    },
+    {
+      "code": "47.63-6-02",
+      "text": "Comércio varejista de artigos esportivos"
+    }
+  ],
+  "logradouro": "RUA VERGUEIRO",
+  "numero": "6583",
+  "complemento": "APT 31",
+  "municipio": "SAO PAULO",
+  "bairro": "VILA FIRMIANO PINTO",
+  "uf": "SP",
+  "cep": "04.273-100",
+  "email": "rgrimaldoh@gmail.com",
+  "telefone": "(11) 9534-2993",
+  "data_situacao": "13/08/2020",
+  "cnpj": "38.084.343/0001-54",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "1000.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
