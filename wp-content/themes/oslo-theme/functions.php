@@ -51,6 +51,29 @@ function oslo_features() {
 add_action('after_setup_theme', 'oslo_features');
 
 
+function consultar_cnpj() {
+    if (!isset($_GET['cnpj'])) {
+        wp_send_json_error('CNPJ no especificado');
+        return;
+    }
+
+    $cnpj = sanitize_text_field($_GET['cnpj']);
+    $response = wp_remote_get("https://receitaws.com.br/v1/cnpj/{$cnpj}");
+
+    if (is_wp_error($response)) {
+        wp_send_json_error('Error al consultar la API');
+        return;
+    }
+
+    $data = wp_remote_retrieve_body($response);
+    wp_send_json_success(json_decode($data));
+}
+add_action('wp_ajax_consultar_cnpj', 'consultar_cnpj');
+add_action('wp_ajax_nopriv_consultar_cnpj', 'consultar_cnpj');
+
+
+
+//Formularios Inicio
 
 function formulario_registro_usuario() {
     ob_start();
@@ -91,7 +114,6 @@ function registrar_usuario() {
         echo 'Error al registrar: ' . $user_id->get_error_message();
         return;
     }
-
     // Asignar rol de administrador de empresa
     wp_update_user([
         'ID' => $user_id,
@@ -105,128 +127,13 @@ function registrar_usuario() {
     echo 'Empresa registrada con éxito. Por favor espera la autorización.';
 }
 
+//Alerta de usuario registrado
 function incluir_sweetalert() {
     wp_enqueue_script('sweetalert-js', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', [], null, true);
 }
 add_action('wp_enqueue_scripts', 'incluir_sweetalert');
 
-
-function registro_usuario_menu() {
-    add_menu_page(
-        'Usuarios', 
-        'Usuarios', 
-        'manage_options', 
-        'usuarios', 
-        'mostrar_usuarios_registrados', 
-        'dashicons-building', 
-        20
-    );
-}
-add_action('admin_menu', 'registro_usuario_menu');
-
-function mostrar_usuarios_registrados() {
-    $users = get_users(['meta_key' => 'cnpj']);
-    echo '<h2>Usuarios Registrados</h2>';
-    echo '<table class="wp-list-table widefat fixed striped">';
-    echo '<thead>
-            <tr>
-                <th>Empresa</th>
-                <th>CNPJ</th>
-                <th>Email</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-                <th>Acceso Agencias</th>
-                <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>';
-
-    foreach ($users as $user) {
-        $empresa = get_user_meta($user->ID, 'empresa', true);
-        $cnpj = get_user_meta($user->ID, 'cnpj', true);
-        $nombre = get_user_meta($user->ID, 'nombre', true);
-        $apellido = get_user_meta($user->ID, 'apellido', true);
-        $acceso_agencias = get_user_meta($user->ID, 'acceso_agencias', true) ? 'Sí' : 'No';
-
-        echo "<tr>
-                <td>{$empresa}</td>
-                <td>{$cnpj}</td>
-                <td>{$user->user_email}</td>
-                <td>{$nombre}</td>
-                <td>{$apellido}</td>
-                <td>
-                    <form method='post' action=''>
-                        <input type='hidden' name='user_id' value='{$user->ID}'>
-                        <input type='checkbox' name='acceso_agencias' value='1' " . checked(1, $acceso_agencias === 'Sí', false) . ">
-                        <input type='submit' class='button' value='Actualizar'>
-                    </form>
-                </td>
-                <td>
-                    <a href='" . admin_url('user-edit.php?user_id=' . $user->ID) . "'>Editar</a> |
-                    <a href='" . wp_nonce_url(admin_url('users.php?action=delete&user=' . $user->ID), 'delete-user_' . $user->ID) . "'>Eliminar</a>
-                </td>
-              </tr>";
-    }
-
-    echo '</tbody></table>';
-}
-
-
-function actualizar_acceso_agencias() {
-    if (isset($_POST['user_id']) && current_user_can('manage_options')) {
-        $user_id = intval($_POST['user_id']);
-        $acceso = isset($_POST['acceso_agencias']) ? 1 : 0;
-        update_user_meta($user_id, 'acceso_agencias', $acceso);
-
-        // Redirigir para evitar reenvíos de formulario
-        wp_redirect(admin_url('admin.php?page=usuarios'));
-        exit;
-    }
-}
-add_action('admin_init', 'actualizar_acceso_agencias');
-
-
-
-function consultar_cnpj() {
-    if (!isset($_GET['cnpj'])) {
-        wp_send_json_error('CNPJ no especificado');
-        return;
-    }
-
-    $cnpj = sanitize_text_field($_GET['cnpj']);
-    $response = wp_remote_get("https://receitaws.com.br/v1/cnpj/{$cnpj}");
-
-    if (is_wp_error($response)) {
-        wp_send_json_error('Error al consultar la API');
-        return;
-    }
-
-    $data = wp_remote_retrieve_body($response);
-    wp_send_json_success(json_decode($data));
-}
-add_action('wp_ajax_consultar_cnpj', 'consultar_cnpj');
-add_action('wp_ajax_nopriv_consultar_cnpj', 'consultar_cnpj');
-
-
-function personalizar_menu_segun_usuario($items, $args) {
-    // Verifica si el usuario está logueado
-    if (is_user_logged_in()) {
-        // Añadir la opción "Agencias" al menú
-        $items .= '<li class="menu-item menu-options"><a href="' . site_url('/agencias') . '">Agencias</a></li>';
-    } else {
-        // Opcional: Añadir un enlace de login si el usuario no está logueado
-        $items .= '<li class="menu-item menu-options"><a href="' . site_url('/registro-usuarios') . '">Iniciar Sesión</a></li>';
-    }
-    return $items;
-}
-add_filter('wp_nav_menu_items', 'personalizar_menu_segun_usuario', 10, 2);
-
-add_action('after_setup_theme', function () {
-    if (!current_user_can('administrator') && !is_admin()) {
-        show_admin_bar(false);
-    }
-});
-
+//Formularios Inicio
 
 //Codigo de los combos Inicio
 add_action('rest_api_init', function () {
@@ -254,7 +161,6 @@ function obtener_continentes() {
             'nombre' => $continente->post_title,
         ];
     }
-
     return rest_ensure_response($result);
 }
 
@@ -304,8 +210,6 @@ function obtener_paises_por_continente($request) {
 
     return rest_ensure_response($result);
 }
-
-
 
 add_action('rest_api_init', function () {
     register_rest_route('custom/v1', '/ciudades/(?P<pais>\d+)', [
@@ -360,15 +264,121 @@ function obtener_ciudades($data) {
     return rest_ensure_response($result);
 }
 
-
 //Codigo de los combos Fin
+
+//Otros Inicio
+
+//Alteración del menu si está logeado o no
+function personalizar_menu_segun_usuario($items, $args) {
+    // Verifica si el usuario está logueado
+    if (is_user_logged_in()) {
+        // Añadir la opción "Agencias" al menú
+        $items .= '<li class="menu-item menu-options"><a href="' . site_url('/agencias') . '">Agencias</a></li>';
+    } else {
+        // Opcional: Añadir un enlace de login si el usuario no está logueado
+        $items .= '<li class="menu-item menu-options"><a href="' . site_url('/registro-usuarios') . '">Iniciar Sesión</a></li>';
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'personalizar_menu_segun_usuario', 10, 2);
+
+
+//Mostrar la barra de wp-admin solo si es rol administrador
+add_action('after_setup_theme', function () {
+    if (!current_user_can('administrator') && !is_admin()) {
+        show_admin_bar(false);
+    }
+});
+
+//Otros Fim
+
+
+//Usuarios Inicio
+
+//Registro menu usuario
+function registro_usuario_menu() {
+    add_menu_page(
+        'Usuarios', 
+        'Usuarios', 
+        'autorizar_usuarios', // Cambiado para permitir acceso a ambos roles
+        'usuarios', 
+        'mostrar_usuarios_registrados', 
+        'dashicons-building', 
+        20
+    );
+}
+add_action('admin_menu', 'registro_usuario_menu');
+
+//Mostrar lista de usuarios dentro de wp-admin
+function mostrar_usuarios_registrados() {
+    // Verificar si el usuario tiene permiso
+    if (!current_user_can('autorizar_usuarios')) {
+        wp_die(__('No tienes permiso para acceder a esta página.'));
+    }
+
+    // Mostrar la lista de usuarios como antes
+    $users = get_users(['meta_key' => 'cnpj']);
+    echo '<h2>Usuarios Registrados</h2>';
+    echo '<form method="post">';
+    echo '<table class="wp-list-table widefat fixed striped">';
+    echo '<thead><tr><th>Empresa</th><th>CNPJ</th><th>Email</th><th>Nombre</th><th>Apellido</th><th>Autorización</th></tr></thead><tbody>';
+    foreach ($users as $user) {
+        $empresa = get_user_meta($user->ID, 'empresa', true);
+        $cnpj = get_user_meta($user->ID, 'cnpj', true);
+        $nombre = get_user_meta($user->ID, 'nombre', true);
+        $apellido = get_user_meta($user->ID, 'apellido', true);
+
+        $autorizado = get_user_meta($user->ID, 'acceso_agencias', true) ? 'checked' : '';
+
+        echo "<tr>
+                <td>{$empresa}</td>
+                <td>{$cnpj}</td>
+                <td>{$user->user_email}</td>
+                <td>{$nombre}</td>
+                <td>{$apellido}</td>
+                <td>
+                    <label>
+                        <input type='checkbox' name='autorizados[{$user->ID}]' value='1' {$autorizado}> Autorizado
+                    </label>
+                </td>
+              </tr>";
+    }
+    echo '</tbody></table>';
+    echo '<input type="submit" name="guardar_autorizaciones" value="Guardar cambios" class="button-primary">';
+    echo '</form>';
+
+    if (isset($_POST['guardar_autorizaciones'])) {
+        foreach ($users as $user) {
+            $permitir = isset($_POST['autorizados'][$user->ID]) ? 1 : 0;
+            update_user_meta($user->ID, 'acceso_agencias', $permitir);
+        }
+        echo '<div class="updated"><p>Autorizaciones actualizadas correctamente.</p></div>';
+    }
+}
+
+//Usuarios Fin
+
+
+//No se pa que sirve
+function actualizar_acceso_agencias() {
+    if (isset($_POST['user_id']) && current_user_can('manage_options')) {
+        $user_id = intval($_POST['user_id']);
+        $acceso = isset($_POST['acceso_agencias']) ? 1 : 0;
+        update_user_meta($user_id, 'acceso_agencias', $acceso);
+
+        // Redirigir para evitar reenvíos de formulario
+        wp_redirect(admin_url('admin.php?page=usuarios'));
+        exit;
+    }
+}
+add_action('admin_init', 'actualizar_acceso_agencias');
+
 
 function cargar_scripts_agencias() {
     wp_enqueue_script('agencias-js', get_theme_file_uri('/src/modules/agencias.js'), ['jquery'], '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'cargar_scripts_agencias');
-
 
 
 //Codigo para aceptación de usuarios Inicio
@@ -404,43 +414,91 @@ function guardar_campo_acceso_usuario($user_id) {
 add_action('personal_options_update', 'guardar_campo_acceso_usuario');
 add_action('edit_user_profile_update', 'guardar_campo_acceso_usuario');
 
-//Codigo para aceptación de usuarios Inicio
-
-
-// Restringir acceso a la página de agencias
-function restringir_acceso_agencias() {
-    if (is_page('agencias') && !current_user_can('manage_options')) { // Reemplaza 'agencias' con el slug de la página
-        $user_id = get_current_user_id();
-        $acceso_permitido = get_user_meta($user_id, 'acceso_agencias', true);
-
-        if (!$acceso_permitido) {
-            wp_redirect(home_url()); // Redirige al usuario al inicio si no tiene permiso
-            exit;
-        }
-    }
-}
-add_action('template_redirect', 'restringir_acceso_agencias');
-
-
-// Validar acceso a la página de agencias
-function restringir_acceso_agencias_con_mensaje() {
-    if (is_page('agencias') && !current_user_can('manage_options')) {
-        $user_id = get_current_user_id();
-        $acceso_permitido = get_user_meta($user_id, 'acceso_agencias', true);
-
-        if (!$acceso_permitido) {
-            wp_die('Tu acceso a esta página está pendiente de aprobación. Contacta con el administrador.');
-        }
-    }
-}
-add_action('template_redirect', 'restringir_acceso_agencias_con_mensaje');
-
-
 
 function establecer_acceso_predeterminado($user_id) {
     add_user_meta($user_id, 'acceso_agencias', 0); // 0 significa sin acceso
 }
 add_action('user_register', 'establecer_acceso_predeterminado');
+
+
+function agregar_capacidad_autorizar_usuarios() {
+    // Agregar capacidad al rol "administrador_empresa"
+    $empresa_role = get_role('administrador_empresa');
+    if ($empresa_role && !$empresa_role->has_cap('autorizar_usuarios')) {
+        $empresa_role->add_cap('autorizar_usuarios');
+    }
+
+    // Agregar capacidad al rol "administrator"
+    $admin_role = get_role('administrator');
+    if ($admin_role && !$admin_role->has_cap('autorizar_usuarios')) {
+        $admin_role->add_cap('autorizar_usuarios');
+    }
+}
+add_action('init', 'agregar_capacidad_autorizar_usuarios');
+
+//asignar capacidades adicionales
+function asignar_capacidades_basicas() {
+    $role = get_role('administrador_empresa');
+    if ($role) {
+        $role->add_cap('read');
+        $role->add_cap('edit_users'); // Permite gestionar usuarios
+        $role->add_cap('list_users'); // Permite ver la lista de usuarios
+    }
+}
+add_action('init', 'asignar_capacidades_basicas');
+
+function verificar_capacidad_usuario_actual() {
+    if (current_user_can('acceso_agencias')) {
+        echo '<div class="notice notice-success"><p>El usuario tiene permiso para acceder a la página de agencias.</p></div>';
+    } else {
+        echo '<div class="notice notice-error"><p>El usuario NO tiene permiso para acceder a la página de agencias.</p></div>';
+    }
+}
+add_action('admin_notices', 'verificar_capacidad_usuario_actual');
+
+function autorizar_usuario_para_agencias($user_id) {
+    $user = new WP_User($user_id);
+    $user->add_cap('acceso_agencias'); // Agrega la capacidad al usuario
+}
+
+//verificar acceso a agencias
+
+function verificar_acceso_agencias() {
+    if (is_page('agencias') &&  !current_user_can('acceso_agencias')) {
+        wp_die(__('No tienes permiso para acceder a esta página agencias.'));
+    }
+}
+add_action('template_redirect', 'verificar_acceso_agencias');
+
+
+// //Verificación capacidad 
+// function verificar_capacidade_agencia() {
+//     $current_user = wp_get_current_user();
+//     if ($current_user->has_cap('acceso_agencias')) {
+//         echo 'El usuario tiene la capacidad "acceso_agencias".';
+//     } else {
+//         echo 'El usuario NO tiene la capacidad "acceso_agencias".';
+//     }
+    
+// }
+// add_action('admin_notices', 'verificar_capacidade_agencia');
+
+
+//Verificar que la meta clave acceso_agencias esté sincronizada con la capacidad
+add_action('init', function () {
+    $current_user = wp_get_current_user();
+
+    if ($current_user->exists()) {
+        $acceso_meta = get_user_meta($current_user->ID, 'acceso_agencias', true);
+
+        if ($acceso_meta == 1) {
+            $current_user->add_cap('acceso_agencias');
+        } else {
+            $current_user->remove_cap('acceso_agencias');
+        }
+    }
+});
+
 
 
 ?>
