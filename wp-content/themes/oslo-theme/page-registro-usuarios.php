@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registro_usuario'])) 
     error_log("Procesando registro de empresa");
     $cnpj = sanitize_text_field($_POST['cnpj']);
     $empresa = sanitize_text_field($_POST['empresa']);
-    $nombre = sanitize_text_field($_POST['nombre']);
-    $apellido = sanitize_text_field($_POST['apellido']);
+    $nombre = sanitize_text_field($_POST['first_name']);
+    $apellido = sanitize_text_field($_POST['last_name']);
     $email = sanitize_email($_POST['email']);
     $password = sanitize_text_field($_POST['password']);
     $passwordConfirma = sanitize_text_field($_POST['passwordConfirma']);
@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registro_usuario'])) 
         if (!is_wp_error($user_id)) {
             update_user_meta($user_id, 'cnpj', $cnpj);
             update_user_meta($user_id, 'empresa', $empresa);
-            update_user_meta($user_id, 'nombre', $nombre);
-            update_user_meta($user_id, 'apellido', $apellido);
+            update_user_meta($user_id, 'first_name', $nombre);
+            update_user_meta($user_id, 'last_name', $apellido);
             ob_end_clean();
             wp_safe_redirect(site_url('/registro-usuarios?success=1'));
             exit;
@@ -112,9 +112,9 @@ get_header();
             <label>Empresa</label><br>
             <input type="text" id="empresa" name="empresa" readonly required><br><br>
             <label>Nombre</label><br>
-            <input type="text" name="nombre" required><br><br>
+            <input type="text" id="first_name" name="first_name" required><br><br>
             <label>Apellido</label><br>
-            <input type="text" name="apellido" required><br><br>
+            <input type="text" id="last_name" name="last_name" required><br><br>
             <label>Email</label><br>
             <input type="email" name="email" required><br><br>
             <label>Senha</label><br>

@@ -89,8 +89,8 @@ function formulario_registro_usuario() {
     <form method="POST" action="">
         <input type="text" name="cnpj" placeholder="CNPJ" required><br>
         <input type="text" name="empresa" placeholder="Nombre da Empresa" required><br>
-        <input type="text" name="nombre" placeholder="Nome" required><br>
-        <input type="text" name="apellido" placeholder="Sobrenome" required><br>
+        <input type="text" id="first_name" name="first_name" placeholder="Nome" required><br>
+        <input type="text" id="last_name" name="last_name" placeholder="Sobrenome" required><br>
         <input type="email" name="email" placeholder="E-mail" required><br>
         <input type="password" name="password" placeholder="Senha" required><br>
         <input type="passwordConfirma" name="passwordConfirma" placeholder="Confirma a senha" required><br>
@@ -110,8 +110,8 @@ add_shortcode('registro_usuario_form', 'formulario_registro_usuario');
 function registrar_usuario() {
     $cnpj = sanitize_text_field($_POST['cnpj']);
     $empresa = sanitize_text_field($_POST['empresa']);
-    $nombre = sanitize_text_field($_POST['nombre']);
-    $apellido = sanitize_text_field($_POST['apellido']);
+    $nombre = sanitize_text_field($_POST['first_name']);
+    $apellido = sanitize_text_field($_POST['last_name']);
     $email = sanitize_email($_POST['email']);
     $password = $_POST['password'];
 
@@ -332,8 +332,8 @@ function mostrar_usuarios_registrados() {
     foreach ($users as $user) {
         $empresa = get_user_meta($user->ID, 'empresa', true);
         $cnpj = get_user_meta($user->ID, 'cnpj', true);
-        $nombre = get_user_meta($user->ID, 'nombre', true);
-        $apellido = get_user_meta($user->ID, 'apellido', true);
+        $nombre = get_user_meta($user->ID, 'first_name', true);
+        $apellido = get_user_meta($user->ID, 'last_name', true);
 
         $autorizado = get_user_meta($user->ID, 'acceso_agencias', true) ? 'checked' : '';
 

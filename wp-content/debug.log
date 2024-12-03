@@ -692,3 +692,685 @@ Stack trace:
     "database": true
   }
 }
+[03-Dec-2024 00:49:00 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\class-wpdb.php on line 1982
+[03-Dec-2024 00:51:32 UTC] Automatic updates starting...
+[03-Dec-2024 00:51:33 UTC] Automatic updates complete.
+[03-Dec-2024 01:10:35 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\class-wpdb.php on line 2317
+[03-Dec-2024 01:10:50 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\user.php on line 2375
+[03-Dec-2024 01:10:58 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\functions.php on line 7173
+[03-Dec-2024 01:11:13 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\user.php on line 2375
+[03-Dec-2024 01:11:32 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\class-wpdb.php on line 1502
+[03-Dec-2024 01:12:00 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\user.php on line 2375
+[03-Dec-2024 01:12:09 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\user.php on line 2375
+[03-Dec-2024 01:19:02 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 262144 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\class-wp-hook.php on line 311
+[03-Dec-2024 01:19:02 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 262144 bytes) in Unknown on line 0
+[03-Dec-2024 01:19:38 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 20480 bytes) in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-includes\meta.php on line 1195
+[03-Dec-2024 01:36:44 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:36:44 UTC] CNPJ recibido: 34467994000172
+[03-Dec-2024 01:36:44 UTC] Respuesta de la API: {
+  "abertura": "08/08/2019",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "VANUZI MARIA DE LIMA SOUSA 44288379334",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "10.91-1-02",
+      "text": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "56.20-1-04",
+      "text": "Fornecimento de alimentos preparados preponderantemente para consumo domiciliar"
+    },
+    {
+      "code": "10.93-7-01",
+      "text": "Fabricação de produtos derivados do cacau e de chocolates"
+    }
+  ],
+  "logradouro": "RUA 41 (CJ PREFEITO JOSE WALTER)",
+  "numero": "1800",
+  "municipio": "FORTALEZA",
+  "bairro": "PREFEITO JOSE WALTER",
+  "uf": "CE",
+  "cep": "60.750-550",
+  "email": "vanuzicakes@gmail.com",
+  "telefone": "(85) 3291-3851",
+  "data_situacao": "08/08/2019",
+  "cnpj": "34.467.994/0001-72",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "complemento": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "500.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:36:52 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:36:52 UTC] CNPJ recibido: 34467994000172
+[03-Dec-2024 01:36:52 UTC] Respuesta de la API: {
+  "abertura": "08/08/2019",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "VANUZI MARIA DE LIMA SOUSA 44288379334",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "10.91-1-02",
+      "text": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "56.20-1-04",
+      "text": "Fornecimento de alimentos preparados preponderantemente para consumo domiciliar"
+    },
+    {
+      "code": "10.93-7-01",
+      "text": "Fabricação de produtos derivados do cacau e de chocolates"
+    }
+  ],
+  "logradouro": "RUA 41 (CJ PREFEITO JOSE WALTER)",
+  "numero": "1800",
+  "municipio": "FORTALEZA",
+  "bairro": "PREFEITO JOSE WALTER",
+  "uf": "CE",
+  "cep": "60.750-550",
+  "email": "vanuzicakes@gmail.com",
+  "telefone": "(85) 3291-3851",
+  "data_situacao": "08/08/2019",
+  "cnpj": "34.467.994/0001-72",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "complemento": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "500.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:37:17 UTC] Usuario ya logueado, redirigiendo a /agencias
+[03-Dec-2024 01:37:52 UTC] Procesando inicio de sesión de empresa
+[03-Dec-2024 01:38:26 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:38:26 UTC] CNPJ recibido: 34467994000172
+[03-Dec-2024 01:38:26 UTC] Respuesta de la API: {
+  "abertura": "08/08/2019",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "VANUZI MARIA DE LIMA SOUSA 44288379334",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "10.91-1-02",
+      "text": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "56.20-1-04",
+      "text": "Fornecimento de alimentos preparados preponderantemente para consumo domiciliar"
+    },
+    {
+      "code": "10.93-7-01",
+      "text": "Fabricação de produtos derivados do cacau e de chocolates"
+    }
+  ],
+  "logradouro": "RUA 41 (CJ PREFEITO JOSE WALTER)",
+  "numero": "1800",
+  "municipio": "FORTALEZA",
+  "bairro": "PREFEITO JOSE WALTER",
+  "uf": "CE",
+  "cep": "60.750-550",
+  "email": "vanuzicakes@gmail.com",
+  "telefone": "(85) 3291-3851",
+  "data_situacao": "08/08/2019",
+  "cnpj": "34.467.994/0001-72",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "complemento": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "500.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:38:56 UTC] Usuario ya logueado, redirigiendo a /agencias
+[03-Dec-2024 01:39:24 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:39:24 UTC] CNPJ recibido: 34467994000172
+[03-Dec-2024 01:39:25 UTC] Respuesta de la API: {
+  "abertura": "08/08/2019",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "VANUZI MARIA DE LIMA SOUSA 44288379334",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "10.91-1-02",
+      "text": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "56.20-1-04",
+      "text": "Fornecimento de alimentos preparados preponderantemente para consumo domiciliar"
+    },
+    {
+      "code": "10.93-7-01",
+      "text": "Fabricação de produtos derivados do cacau e de chocolates"
+    }
+  ],
+  "logradouro": "RUA 41 (CJ PREFEITO JOSE WALTER)",
+  "numero": "1800",
+  "municipio": "FORTALEZA",
+  "bairro": "PREFEITO JOSE WALTER",
+  "uf": "CE",
+  "cep": "60.750-550",
+  "email": "vanuzicakes@gmail.com",
+  "telefone": "(85) 3291-3851",
+  "data_situacao": "08/08/2019",
+  "cnpj": "34.467.994/0001-72",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "complemento": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "500.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:39:48 UTC] Procesando registro de empresa
+[03-Dec-2024 01:45:37 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:45:37 UTC] CNPJ recibido: 38084343000154
+[03-Dec-2024 01:45:37 UTC] Respuesta de la API: {
+  "abertura": "13/08/2020",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "RICARDO GRIMALDO HERNANDEZ 24143302870",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "18.21-1-00",
+      "text": "Serviços de pré-impressão"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "58.19-1-00",
+      "text": "Edição de cadastros, listas e outros produtos gráficos"
+    },
+    {
+      "code": "95.11-8-00",
+      "text": "Reparação e manutenção de computadores e de equipamentos periféricos"
+    },
+    {
+      "code": "18.13-0-01",
+      "text": "Impressão de material para uso publicitário"
+    },
+    {
+      "code": "73.19-0-02",
+      "text": "Promoção de vendas"
+    },
+    {
+      "code": "95.12-6-00",
+      "text": "Reparação e manutenção de equipamentos de comunicação"
+    },
+    {
+      "code": "58.13-1-00",
+      "text": "Edição de revistas"
+    },
+    {
+      "code": "82.19-9-99",
+      "text": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente"
+    },
+    {
+      "code": "18.13-0-99",
+      "text": "Impressão de material para outros usos"
+    },
+    {
+      "code": "79.90-2-00",
+      "text": "Serviços de reservas e outros serviços de turismo não especificados anteriormente"
+    },
+    {
+      "code": "82.30-0-01",
+      "text": "Serviços de organização de feiras, congressos, exposições e festas"
+    },
+    {
+      "code": "58.11-5-00",
+      "text": "Edição de livros"
+    },
+    {
+      "code": "85.99-6-99",
+      "text": "Outras atividades de ensino não especificadas anteriormente"
+    },
+    {
+      "code": "59.12-0-99",
+      "text": "Atividades de pós-produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente"
+    },
+    {
+      "code": "79.11-2-00",
+      "text": "Agências de viagens"
+    },
+    {
+      "code": "47.63-6-02",
+      "text": "Comércio varejista de artigos esportivos"
+    }
+  ],
+  "logradouro": "RUA VERGUEIRO",
+  "numero": "6583",
+  "complemento": "APT 31",
+  "municipio": "SAO PAULO",
+  "bairro": "VILA FIRMIANO PINTO",
+  "uf": "SP",
+  "cep": "04.273-100",
+  "email": "rgrimaldoh@gmail.com",
+  "telefone": "(11) 9534-2993",
+  "data_situacao": "13/08/2020",
+  "cnpj": "38.084.343/0001-54",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "1000.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:46:10 UTC] Procesando registro de empresa
+[03-Dec-2024 01:50:05 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:50:05 UTC] CNPJ recibido: 38084343000154
+[03-Dec-2024 01:50:06 UTC] Respuesta de la API: {
+  "abertura": "13/08/2020",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "RICARDO GRIMALDO HERNANDEZ 24143302870",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "18.21-1-00",
+      "text": "Serviços de pré-impressão"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "58.19-1-00",
+      "text": "Edição de cadastros, listas e outros produtos gráficos"
+    },
+    {
+      "code": "95.11-8-00",
+      "text": "Reparação e manutenção de computadores e de equipamentos periféricos"
+    },
+    {
+      "code": "18.13-0-01",
+      "text": "Impressão de material para uso publicitário"
+    },
+    {
+      "code": "73.19-0-02",
+      "text": "Promoção de vendas"
+    },
+    {
+      "code": "95.12-6-00",
+      "text": "Reparação e manutenção de equipamentos de comunicação"
+    },
+    {
+      "code": "58.13-1-00",
+      "text": "Edição de revistas"
+    },
+    {
+      "code": "82.19-9-99",
+      "text": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente"
+    },
+    {
+      "code": "18.13-0-99",
+      "text": "Impressão de material para outros usos"
+    },
+    {
+      "code": "79.90-2-00",
+      "text": "Serviços de reservas e outros serviços de turismo não especificados anteriormente"
+    },
+    {
+      "code": "82.30-0-01",
+      "text": "Serviços de organização de feiras, congressos, exposições e festas"
+    },
+    {
+      "code": "58.11-5-00",
+      "text": "Edição de livros"
+    },
+    {
+      "code": "85.99-6-99",
+      "text": "Outras atividades de ensino não especificadas anteriormente"
+    },
+    {
+      "code": "59.12-0-99",
+      "text": "Atividades de pós-produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente"
+    },
+    {
+      "code": "79.11-2-00",
+      "text": "Agências de viagens"
+    },
+    {
+      "code": "47.63-6-02",
+      "text": "Comércio varejista de artigos esportivos"
+    }
+  ],
+  "logradouro": "RUA VERGUEIRO",
+  "numero": "6583",
+  "complemento": "APT 31",
+  "municipio": "SAO PAULO",
+  "bairro": "VILA FIRMIANO PINTO",
+  "uf": "SP",
+  "cep": "04.273-100",
+  "email": "rgrimaldoh@gmail.com",
+  "telefone": "(11) 9534-2993",
+  "data_situacao": "13/08/2020",
+  "cnpj": "38.084.343/0001-54",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "1000.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:50:24 UTC] Procesando registro de empresa
+[03-Dec-2024 01:50:24 UTC] PHP Warning:  Undefined array key "first_name" in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-content\themes\oslo-theme\page-registro-usuarios.php on line 19
+[03-Dec-2024 01:50:24 UTC] PHP Warning:  Undefined array key "last_name" in C:\Users\Grimaldo\Local Sites\plantel\app\public\wp-content\themes\oslo-theme\page-registro-usuarios.php on line 20
+[03-Dec-2024 01:52:59 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:52:59 UTC] CNPJ recibido: 38084343000154
+[03-Dec-2024 01:52:59 UTC] Respuesta de la API: {
+  "abertura": "13/08/2020",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "RICARDO GRIMALDO HERNANDEZ 24143302870",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "18.21-1-00",
+      "text": "Serviços de pré-impressão"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "58.19-1-00",
+      "text": "Edição de cadastros, listas e outros produtos gráficos"
+    },
+    {
+      "code": "95.11-8-00",
+      "text": "Reparação e manutenção de computadores e de equipamentos periféricos"
+    },
+    {
+      "code": "18.13-0-01",
+      "text": "Impressão de material para uso publicitário"
+    },
+    {
+      "code": "73.19-0-02",
+      "text": "Promoção de vendas"
+    },
+    {
+      "code": "95.12-6-00",
+      "text": "Reparação e manutenção de equipamentos de comunicação"
+    },
+    {
+      "code": "58.13-1-00",
+      "text": "Edição de revistas"
+    },
+    {
+      "code": "82.19-9-99",
+      "text": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente"
+    },
+    {
+      "code": "18.13-0-99",
+      "text": "Impressão de material para outros usos"
+    },
+    {
+      "code": "79.90-2-00",
+      "text": "Serviços de reservas e outros serviços de turismo não especificados anteriormente"
+    },
+    {
+      "code": "82.30-0-01",
+      "text": "Serviços de organização de feiras, congressos, exposições e festas"
+    },
+    {
+      "code": "58.11-5-00",
+      "text": "Edição de livros"
+    },
+    {
+      "code": "85.99-6-99",
+      "text": "Outras atividades de ensino não especificadas anteriormente"
+    },
+    {
+      "code": "59.12-0-99",
+      "text": "Atividades de pós-produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente"
+    },
+    {
+      "code": "79.11-2-00",
+      "text": "Agências de viagens"
+    },
+    {
+      "code": "47.63-6-02",
+      "text": "Comércio varejista de artigos esportivos"
+    }
+  ],
+  "logradouro": "RUA VERGUEIRO",
+  "numero": "6583",
+  "complemento": "APT 31",
+  "municipio": "SAO PAULO",
+  "bairro": "VILA FIRMIANO PINTO",
+  "uf": "SP",
+  "cep": "04.273-100",
+  "email": "rgrimaldoh@gmail.com",
+  "telefone": "(11) 9534-2993",
+  "data_situacao": "13/08/2020",
+  "cnpj": "38.084.343/0001-54",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "1000.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "13/08/2020",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
+[03-Dec-2024 01:53:20 UTC] Procesando registro de empresa
+[03-Dec-2024 01:55:24 UTC] Inicio de consultar_cnpj
+[03-Dec-2024 01:55:24 UTC] CNPJ recibido: 34467994000172
+[03-Dec-2024 01:55:24 UTC] Respuesta de la API: {
+  "abertura": "08/08/2019",
+  "situacao": "ATIVA",
+  "tipo": "MATRIZ",
+  "nome": "VANUZI MARIA DE LIMA SOUSA 44288379334",
+  "porte": "MICRO EMPRESA",
+  "natureza_juridica": "213-5 - Empresário (Individual)",
+  "atividade_principal": [
+    {
+      "code": "10.91-1-02",
+      "text": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria"
+    }
+  ],
+  "atividades_secundarias": [
+    {
+      "code": "56.20-1-04",
+      "text": "Fornecimento de alimentos preparados preponderantemente para consumo domiciliar"
+    },
+    {
+      "code": "10.93-7-01",
+      "text": "Fabricação de produtos derivados do cacau e de chocolates"
+    }
+  ],
+  "logradouro": "RUA 41 (CJ PREFEITO JOSE WALTER)",
+  "numero": "1800",
+  "municipio": "FORTALEZA",
+  "bairro": "PREFEITO JOSE WALTER",
+  "uf": "CE",
+  "cep": "60.750-550",
+  "email": "vanuzicakes@gmail.com",
+  "telefone": "(85) 3291-3851",
+  "data_situacao": "08/08/2019",
+  "cnpj": "34.467.994/0001-72",
+  "ultima_atualizacao": "2024-11-09T23:59:59.000Z",
+  "status": "OK",
+  "fantasia": "",
+  "complemento": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "500.00",
+  "qsa": [],
+  "simples": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "simei": {
+    "optante": true,
+    "data_opcao": "08/08/2019",
+    "data_exclusao": null,
+    "ultima_atualizacao": "2024-11-09T23:59:59.000Z"
+  },
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}
