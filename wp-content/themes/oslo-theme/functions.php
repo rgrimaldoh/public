@@ -479,7 +479,11 @@ function autorizar_usuario_para_agencias($user_id) {
 
 function verificar_acceso_agencias() {
     if (is_page('agencias') &&  !current_user_can('acceso_agencias')) {
+        ?>
+            <button type="button" name="registro_usuario" class="button-primary"><a href="' . site_url('/') . '">Back to Home</a></button>
+        <?php
         wp_die(__('No tienes permiso para acceder a la página agencias. Solicite acceso al administrador'));
+
     }
 }
 add_action('template_redirect', 'verificar_acceso_agencias');
@@ -513,6 +517,17 @@ add_action('init', function () {
     }
 });
 
+
+function registrar_scripts_mascara() {
+    wp_enqueue_script(
+        'imask',
+        'https://unpkg.com/imask',
+        [],
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'registrar_scripts_mascara');
 
 
 ?>

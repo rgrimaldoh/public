@@ -8,6 +8,8 @@
   <body <?php body_class(); ?>>
   <header class="site-header">
 
+  <script src="https://unpkg.com/imask"></script>
+
       <div class="user-greeting">
         <div class="site-header__util">
           <?php  

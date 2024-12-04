@@ -1,6 +1,9 @@
 <?php
 /* Template Name: Registro o Login de Empresa */
 
+
+
+
 // Si el usuario está logueado, redirigir antes de cargar contenido
 
 use const Avifinfo\UNDEFINED;
@@ -29,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registro_usuario'])) 
     if ($password !== $passwordConfirma) {
         $registro_error = 'Las contraseñas no coinciden';
     }
+    
+    $cnpj = preg_replace('/\D/', '', $cnpj);
+    echo $cnpj;
     if (!is_numeric($cnpj) || strlen($cnpj) !== 14) {
         $registro_error = 'CNPJ inválido';
     }
@@ -108,7 +114,7 @@ get_header();
         <?php if (!empty($registro_error)) echo '<p style="color: red;">' . $registro_error . '</p>'; ?>
         <form method="POST">
             <label>CNPJ</label><br>
-            <input type="text" id="cnpj" name="cnpj" required><br><br>
+            <input type="text" id="cnpj" placeholder="00.000.000/0000-00" name="cnpj" required><br><br>
             <label>Empresa</label><br>
             <input type="text" id="empresa" name="empresa" readonly required><br><br>
             <label>Nombre</label><br>
@@ -153,6 +159,15 @@ document.getElementById('cnpj').addEventListener('blur', async function () {
         empresaField.value = "CNPJ inválido";
     }
 });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cnpjInput = document.getElementById('cnpj');
+        IMask(cnpjInput, {
+            mask: "00.000.000/0000-00",
+        });
+    });
 </script>
 
 <?php

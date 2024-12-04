@@ -17,6 +17,8 @@
     "@glidejs/glide": "^3.4.1",
     "@wordpress/scripts": "*",
     "axios": "^0.21.1",
+    "imask": "^7.6.1",
+    "inputmask": "^5.0.9",
     "normalize.css": "^8.0.1"
   }
 }
