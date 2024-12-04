@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registro_usuario'])) 
     }
     
     $cnpj = preg_replace('/\D/', '', $cnpj);
-    echo $cnpj;
     if (!is_numeric($cnpj) || strlen($cnpj) !== 14) {
         $registro_error = 'CNPJ inválido';
     }
